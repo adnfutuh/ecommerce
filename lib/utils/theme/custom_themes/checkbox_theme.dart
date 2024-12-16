@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils.dart';
+
 class MyCheckboxTheme {
   MyCheckboxTheme._();
   static CheckboxThemeData lightCheckboxTheme = CheckboxThemeData(
@@ -14,7 +16,7 @@ class MyCheckboxTheme {
     }),
     fillColor: WidgetStateProperty.resolveWith((state) {
       if (state.contains(WidgetState.selected)) {
-        return Colors.blue;
+        return MyColors.primary;
       } else {
         Colors.transparent;
       }
@@ -33,7 +35,7 @@ class MyCheckboxTheme {
     }),
     fillColor: WidgetStateProperty.resolveWith((state) {
       if (state.contains(WidgetState.selected)) {
-        return Colors.blue;
+        return MyColors.primary;
       } else {
         Colors.transparent;
       }
