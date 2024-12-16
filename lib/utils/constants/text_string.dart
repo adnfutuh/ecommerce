@@ -14,6 +14,23 @@ class MyText {
       'For Seamless Transactions, Choose Your Payment Path - Your Convience, Our Priority!';
   static const String onBoardingSubTitle3 =
       'From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!';
+  //ayth from text
+  static const String firstName = 'First Name';
+  static const String lastName = 'Last Name';
+  static const String email = 'E-Mail';
+  static const String pass = 'Password';
+  static const String newPass = 'New Password';
+  static const String username = 'Username';
+  static const String rememberMe = 'Remember Me';
+  static const String forgetPass = 'Forget Password';
+  static const String signIn = 'Sign In';
+  static const String createAccount = 'Create Account';
+  static const String orSingInWith = 'or sign in with';
+
+  //auth head
+  static const String loginTitle = 'Welcome back';
+  static const String loginSubTitle =
+      'Discover Limitless Choices and Unmatched Convinience';
 
   // home
   static const String homeAppbarTitle = 'Good day for shopping';
