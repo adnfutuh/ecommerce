@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'widgets/home_appbar.dart';
+import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import 'widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,6 +15,8 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               HomeAppbar(),
+              SearchContainer(text: 'Search in Store'),
+              HomeCategories(),
             ],
           ),
         ),
