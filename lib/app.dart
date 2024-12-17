@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
+      debugShowCheckedModeBanner: false,
       home: const OnboardingScreen(),
     );
   }

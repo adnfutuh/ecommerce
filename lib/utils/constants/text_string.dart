@@ -2,6 +2,7 @@ class MyText {
   MyText._();
 
   // global texts
+  static const String appName = 'T-Store';
   static const String and = 'and';
   static const String continues = 'Continue';
   static const String submit = 'Submit';
