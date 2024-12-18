@@ -1,3 +1,4 @@
+import 'package:ecommerce/common/widgets/text/section_headling.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
@@ -11,14 +12,27 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SingleChildScrollView(
-        child: PrimaryHeaderContainer(
-          child: Column(
-            children: [
-              HomeAppbar(),
-              SearchContainer(text: 'Search in Store'),
-              HomeCategories(),
-            ],
-          ),
+        child: Column(
+          children: [
+            PrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  HomeAppbar(),
+                  SearchContainer(text: 'Search in Store'),
+                  HomeCategories(),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  HomePromo(),
+                  SectionHeadling(title: 'Popular Products')
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

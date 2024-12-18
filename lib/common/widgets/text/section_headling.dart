@@ -1,3 +1,4 @@
+import 'package:ecommerce/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class SectionHeadling extends StatelessWidget {
@@ -17,6 +18,7 @@ class SectionHeadling extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
@@ -28,7 +30,16 @@ class SectionHeadling extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle))
+          TextButton(
+            onPressed: onPressed,
+            child: Text(
+              buttonTitle,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .apply(color: MyColors.primary),
+            ),
+          )
       ],
     );
   }
