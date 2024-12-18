@@ -1,3 +1,5 @@
+import 'package:ecommerce/common/widgets/layouts/grid_layout.dart';
+import 'package:ecommerce/common/widgets/products/card/product_card_vertical.dart';
 import 'package:ecommerce/common/widgets/text/section_headling.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +12,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PrimaryHeaderContainer(
+            const PrimaryHeaderContainer(
               child: Column(
                 children: [
                   HomeAppbar(),
@@ -24,11 +26,16 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
-                  HomePromo(),
-                  SectionHeadling(title: 'Popular Products')
+                  const HomePromo(),
+                  const SectionHeadling(title: 'Popular Products'),
+                  GridLayout(
+                    itemCount: 4,
+                    itemBuilder: (context, index) =>
+                        const ProductCardVertical(),
+                  ),
                 ],
               ),
             ),

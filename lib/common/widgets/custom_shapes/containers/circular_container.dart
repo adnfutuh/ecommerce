@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../utils/utils.dart';
 
 class CircularContainer extends StatelessWidget {
-  final double width, height, radius, padding;
+  final double width, height, radius;
   final Color bgColor;
   final Widget? child;
   const CircularContainer({
@@ -11,7 +11,6 @@ class CircularContainer extends StatelessWidget {
     this.width = 400,
     this.height = 400,
     this.radius = 400,
-    this.padding = 0,
     this.bgColor = MyColors.textWhite,
     this.child,
   });
