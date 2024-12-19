@@ -1,7 +1,6 @@
 import 'package:ecommerce/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 class RAppbar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBackArrow;
@@ -9,28 +8,41 @@ class RAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final List<Widget>? actions;
   final VoidCallback? onPressed;
-  const RAppbar({
-    super.key,
-    this.showBackArrow = false,
-    this.leadingIcon,
-    this.title,
-    this.actions,
-    this.onPressed,
-  });
+  final bool changeColor;
+  final Color? color;
+  const RAppbar(
+      {super.key,
+      this.showBackArrow = false,
+      this.leadingIcon,
+      this.title,
+      this.actions,
+      this.onPressed,
+      this.changeColor = false,
+      this.color = MyColors.white});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      leading: showBackArrow
-          ? IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(Iconsax.arrow_left_outline))
-          : leadingIcon != null
-              ? IconButton(onPressed: onPressed, icon: Icon(leadingIcon))
-              : null,
-      title: title,
-      actions: actions,
+    final dark = MyHelperFunctions.isDarkMode(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: AppBar(
+        automaticallyImplyLeading: false,
+        leading: showBackArrow
+            ? IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(Icons.arrow_back_ios),
+                color: changeColor
+                    ? color
+                    : dark
+                        ? MyColors.white
+                        : MyColors.black,
+              )
+            : leadingIcon != null
+                ? IconButton(onPressed: onPressed, icon: Icon(leadingIcon))
+                : null,
+        title: title,
+        actions: actions,
+      ),
     );
   }
 

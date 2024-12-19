@@ -1,10 +1,14 @@
 import 'package:ecommerce/common/styles/shadow_style.dart';
 import 'package:ecommerce/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:ecommerce/common/widgets/icon/circular_icon.dart';
+import 'package:ecommerce/common/widgets/text/brand_title_with_verifed_icon.dart';
 import 'package:ecommerce/common/widgets/text/price_text.dart';
 import 'package:ecommerce/common/widgets/text/product_text.dart';
+import 'package:ecommerce/features/shop/screens/product_detail/product_detail.dart';
 import 'package:ecommerce/generated/assets.gen.dart';
 import 'package:ecommerce/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 class ProductCardVertical extends StatelessWidget {
@@ -14,9 +18,9 @@ class ProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = MyHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(const ProductDetail()),
       child: Container(
-        width: 180,
+        width: 150,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [ShadowStyle.verticalProductShadow],
@@ -27,7 +31,7 @@ class ProductCardVertical extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RoundedContainer(
-              height: 180,
+              height: 150,
               padding: const EdgeInsetsDirectional.all(8),
               bgColor: dark ? MyColors.dark : MyColors.light,
               child: Stack(
@@ -54,74 +58,65 @@ class ProductCardVertical extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: -1,
-                    right: -12,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Iconsax.heart_outline)),
-                  )
+                  const Positioned(
+                      top: -1,
+                      right: -12,
+                      child: CircularIcon(
+                        size: 24,
+                        icon: Iconsax.heart_bold,
+                        color: Colors.red,
+                        changeColor: false,
+                      ))
                 ],
               ),
             ),
             const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.only(left: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ProductTitleText(
+                  ProductTitleText(
                     title: 'Green Nike Air Shoes',
                     smallSize: true,
                   ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Text(
-                        'Nike',
-                        style: Theme.of(context).textTheme.labelMedium,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                      const SizedBox(width: 6),
-                      const Icon(
-                        Iconsax.verify_bold,
-                        color: MyColors.primary,
-                        size: 18,
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const PriceText(
-                        price: '35.5',
-                        isLarge: true,
-                      ),
-                      const SizedBox(width: 6),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: MyColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12),
-                            bottomRight: Radius.circular(16),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          height: 22 * 1.2,
-                          width: 22 * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add_outline,
-                              color: MyColors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
+                  SizedBox(height: 8),
+                  BrandTitleWithFerivedIcon(title: 'Nike'),
                 ],
               ),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 8),
+                  child: PriceText(
+                    price: '35.5',
+                    isLarge: true,
+                  ),
+                ),
+                const SizedBox(width: 6),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: MyColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      bottomRight: Radius.circular(16),
+                    ),
+                  ),
+                  child: const SizedBox(
+                    height: 22 * 1.2,
+                    width: 22 * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add_outline,
+                        color: MyColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),
