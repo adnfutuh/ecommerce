@@ -17,7 +17,7 @@ class HomeCategories extends StatelessWidget {
       child: Column(
         children: [
           const SectionHeadling(
-            title: 'Popular Category',
+            title: 'Popular Categories',
             showActionButton: false,
             textColor: MyColors.textWhite,
           ),

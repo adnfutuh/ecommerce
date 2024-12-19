@@ -11,30 +11,27 @@ class HomeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: RAppbar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              MyText.homeAppbarTitle,
-              style: Theme.of(context)
-                  .textTheme
-                  .labelMedium!
-                  .apply(color: MyColors.grey),
-            ),
-            Text(
-              MyText.homeAppbarSubTitle,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall!
-                  .apply(color: MyColors.white),
-            )
-          ],
-        ),
-        actions: const [CartCounterIcon(iconColor: MyColors.white)],
+    return RAppbar(
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            MyText.homeAppbarTitle,
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium!
+                .apply(color: MyColors.grey),
+          ),
+          Text(
+            MyText.homeAppbarSubTitle,
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall!
+                .apply(color: MyColors.white),
+          )
+        ],
       ),
+      actions: const [CartCounterIcon(iconColor: MyColors.white)],
     );
   }
 }
