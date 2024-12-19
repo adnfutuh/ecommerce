@@ -48,7 +48,7 @@ class ProductCardVertical extends StatelessWidget {
                         horizontal: 8,
                       ),
                       radius: 8,
-                      bgColor: MyColors.secondary.withOpacity(0.8),
+                      bgColor: MyColors.secondary.withValues(alpha: 0.8),
                       child: Text(
                         '25%',
                         style: Theme.of(context)

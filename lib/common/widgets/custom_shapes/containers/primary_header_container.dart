@@ -23,13 +23,13 @@ class PrimaryHeaderContainer extends StatelessWidget {
                 top: -150,
                 right: -250,
                 child: CircularContainer(
-                    bgColor: MyColors.textWhite.withOpacity(0.1)),
+                    bgColor: MyColors.textWhite.withValues(alpha: 0.1)),
               ),
               Positioned(
                 top: 100,
                 right: -300,
                 child: CircularContainer(
-                    bgColor: MyColors.textWhite.withOpacity(0.1)),
+                    bgColor: MyColors.textWhite.withValues(alpha: 0.1)),
               ),
               child,
             ],

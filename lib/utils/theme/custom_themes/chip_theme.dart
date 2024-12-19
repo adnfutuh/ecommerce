@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyChipTheme {
   MyChipTheme._();
   static ChipThemeData lightChipTheme = ChipThemeData(
-    disabledColor: Colors.grey.withOpacity(0.4),
+    disabledColor: Colors.grey.withValues(alpha: 0.4),
     labelStyle: const TextStyle(color: Colors.black),
     selectedColor: Colors.blue,
     padding: const EdgeInsets.all(12),

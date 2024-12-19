@@ -31,7 +31,7 @@ class MyColors {
 
   // bg container colos
   static const Color lightContainer = Color(0xFFF6F6F6);
-  static Color darkContainer = MyColors.white.withOpacity(0.1);
+  static Color darkContainer = MyColors.white.withValues(alpha: 0.1);
 
   // button colors
   static const Color buttonPrimary = Color(0xFF4B68FF);

@@ -10,7 +10,7 @@ class MyTextFieldTheme {
     hintStyle: const TextStyle().copyWith(color: Colors.black, fontSize: 14),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
     floatingLabelStyle:
-        const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
+        const TextStyle().copyWith(color: Colors.black.withValues(alpha: 0.8)),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
       borderSide: const BorderSide(width: 1, color: Colors.grey),
@@ -40,7 +40,7 @@ class MyTextFieldTheme {
     hintStyle: const TextStyle().copyWith(color: Colors.white, fontSize: 14),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
     floatingLabelStyle:
-        const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
+        const TextStyle().copyWith(color: Colors.white.withValues(alpha: 0.8)),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
       borderSide: const BorderSide(width: 1, color: Colors.grey),

@@ -23,8 +23,8 @@ class NavigationMenu extends StatelessWidget {
                 controller.selectedIndex.value = value,
             backgroundColor: dark ? MyColors.black : MyColors.white,
             indicatorColor: dark
-                ? MyColors.white.withOpacity(0.1)
-                : MyColors.black.withOpacity(0.1),
+                ? MyColors.white.withValues(alpha: 0.1)
+                : MyColors.black.withValues(alpha: 0.1),
             destinations: const [
               NavigationDestination(
                   icon: Icon(Iconsax.home_outline), label: "Home"),
