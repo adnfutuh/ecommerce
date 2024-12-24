@@ -3,8 +3,11 @@ import 'package:ecommerce/common/widgets/custom_shapes/containers/primary_header
 import 'package:ecommerce/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:ecommerce/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:ecommerce/common/widgets/text/section_headling.dart';
+import 'package:ecommerce/features/personalization/screens/address/address_screen.dart';
+import 'package:ecommerce/features/shop/screens/order/order_screen.dart';
 import 'package:ecommerce/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -42,20 +45,22 @@ class SettingScreen extends StatelessWidget {
                     showActionButton: false,
                   ),
                   const SizedBox(height: 16),
-                  const SettingsMenuTile(
+                  SettingsMenuTile(
                     icon: Iconsax.safe_home_outline,
-                    title: "My Address",
+                    title: "My Addresses",
                     subtitle: "Set shopping delivery address",
+                    onTap: () => Get.to(() => const AddressScreen()),
                   ),
                   const SettingsMenuTile(
                     icon: Iconsax.shopping_cart_outline,
                     title: "My Cart",
                     subtitle: "Add, remove products and move to checkout",
                   ),
-                  const SettingsMenuTile(
+                  SettingsMenuTile(
                     icon: Iconsax.bag_tick_outline,
                     title: "My Orders",
                     subtitle: "In-progress and Completed Orders",
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   const SettingsMenuTile(
                     icon: Iconsax.bank_outline,

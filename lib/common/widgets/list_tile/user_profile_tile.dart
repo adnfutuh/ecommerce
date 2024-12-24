@@ -31,7 +31,7 @@ class UserProfileTile extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
       ),
       trailing: IconButton(
-          onPressed: () => Get.to(const ProfileScreen()),
+          onPressed: () => Get.to(() => const ProfileScreen()),
           icon: const Icon(
             Iconsax.edit_outline,
             color: MyColors.white,
