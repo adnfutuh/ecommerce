@@ -21,7 +21,11 @@ class OnboardingCircular extends StatelessWidget {
               color: dark ? MyColors.primary : MyColors.dark,
             ),
           ),
-          child: const Icon(Icons.arrow_forward_ios)),
+          child: const Icon(
+            Icons.arrow_forward_ios,
+            color: MyColors.white,
+            size: 24,
+          )),
     );
   }
 }

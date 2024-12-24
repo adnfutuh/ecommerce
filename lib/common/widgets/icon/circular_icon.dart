@@ -9,6 +9,8 @@ class CircularIcon extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool changeColor;
   final Color color;
+  final Color? bgColor;
+  final bool showBgColor;
   const CircularIcon({
     super.key,
     this.width = 50,
@@ -17,8 +19,10 @@ class CircularIcon extends StatelessWidget {
     this.onPressed,
     required this.icon,
     this.color = MyColors.white,
-    this.changeColor = true,
+    this.changeColor = false,
     this.size = 32,
+    this.showBgColor = false,
+    this.bgColor,
   });
 
   @override
@@ -28,16 +32,25 @@ class CircularIcon extends StatelessWidget {
       height: height,
       width: width,
       padding: padding,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: showBgColor
+              ? bgColor != null
+                  ? bgColor!
+                  : dark
+                      ? MyColors.black.withValues(alpha: 0.9)
+                      : MyColors.white.withValues(alpha: 0.9)
+              : null),
       child: IconButton(
         onPressed: onPressed,
         icon: Icon(
           size: size,
           icon,
           color: changeColor
-              ? dark
+              ? color
+              : dark
                   ? MyColors.white
-                  : MyColors.black
-              : color,
+                  : MyColors.black,
         ),
       ),
     );

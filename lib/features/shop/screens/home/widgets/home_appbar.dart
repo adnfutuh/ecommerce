@@ -1,4 +1,6 @@
+import 'package:ecommerce/features/shop/screens/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../common/widgets/appbar/r_appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_menu_icon.dart';
@@ -31,7 +33,12 @@ class HomeAppbar extends StatelessWidget {
           )
         ],
       ),
-      actions: const [CartCounterIcon(iconColor: MyColors.white)],
+      actions: [
+        CartCounterIcon(
+          iconColor: MyColors.white,
+          onPressed: () => Get.to(() => const CartScreen()),
+        )
+      ],
     );
   }
 }

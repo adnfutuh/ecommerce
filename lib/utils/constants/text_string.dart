@@ -7,6 +7,10 @@ class MyText {
   static const String continues = 'Continue';
   static const String submit = 'Submit';
   static const String done = 'Done';
+  static const String save = 'Save';
+  static const String description =
+      "This is a Product Description Nike Sleeve lest vess. There are more things that can be added but i am just practicing and nothing else. ";
+
   // onBoarding text
   static const String onBoardingTitle1 = 'Chose your product';
   static const String onBoardingTitle2 = 'Select Payment Method';
@@ -25,6 +29,7 @@ class MyText {
   static const String pass = 'Password';
   static const String newPass = 'New Password';
   static const String phoneNum = 'Phone Number';
+  static const String name = 'Name';
   static const String username = 'Username';
   static const String rememberMe = 'Remember Me';
   static const String forgetPass = 'Forget Password?';

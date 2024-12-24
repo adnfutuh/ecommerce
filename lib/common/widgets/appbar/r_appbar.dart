@@ -24,7 +24,7 @@ class RAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final dark = MyHelperFunctions.isDarkMode(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppBar(
         automaticallyImplyLeading: false,
         leading: showBackArrow

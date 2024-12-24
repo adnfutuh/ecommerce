@@ -22,7 +22,7 @@ class PriceText extends StatelessWidget {
       style: isLarge
           ? Theme.of(context).textTheme.headlineMedium!.apply(
               decoration: lineThrough ? TextDecoration.lineThrough : null)
-          : Theme.of(context).textTheme.labelLarge!.apply(
+          : Theme.of(context).textTheme.titleMedium!.apply(
               decoration: lineThrough ? TextDecoration.lineThrough : null),
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines,
