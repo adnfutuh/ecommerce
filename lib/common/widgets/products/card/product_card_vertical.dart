@@ -18,7 +18,7 @@ class ProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = MyHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(const ProductDetail()),
+      onTap: () => Get.to(() => const ProductDetail()),
       child: Container(
         width: 150,
         padding: const EdgeInsets.all(1),
@@ -65,7 +65,7 @@ class ProductCardVertical extends StatelessWidget {
                         size: 24,
                         icon: Iconsax.heart_bold,
                         color: Colors.red,
-                        changeColor: false,
+                        changeColor: true,
                       ))
                 ],
               ),
