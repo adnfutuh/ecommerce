@@ -8,17 +8,19 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/utils.dart';
 
 class BarndCard extends StatelessWidget {
+  final void Function()? onTap;
   final bool showBorder;
   const BarndCard({
     super.key,
     this.showBorder = true,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final dark = MyHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: RoundedContainer(
         showBorder: showBorder,
         bgColor: Colors.transparent,

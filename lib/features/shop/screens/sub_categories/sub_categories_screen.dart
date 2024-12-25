@@ -32,7 +32,7 @@ class SubCategoriesScreen extends StatelessWidget {
               const SectionHeadling(title: "Sports Shirts"),
               const SizedBox(height: 8),
               SizedBox(
-                height: 120,
+                height: 130,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) =>
@@ -46,7 +46,7 @@ class SubCategoriesScreen extends StatelessWidget {
               const SectionHeadling(title: "Track Suits"),
               const SizedBox(height: 8),
               SizedBox(
-                height: 120,
+                height: 130,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) =>
@@ -60,7 +60,7 @@ class SubCategoriesScreen extends StatelessWidget {
               const SectionHeadling(title: "Sports Equipments"),
               const SizedBox(height: 8),
               SizedBox(
-                height: 120,
+                height: 130,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) =>

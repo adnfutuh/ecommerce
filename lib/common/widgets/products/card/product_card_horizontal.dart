@@ -20,7 +20,7 @@ class ProductCardHorizontal extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(() => const ProductDetail()),
       child: Container(
-        width: 300,
+        width: 310,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -29,14 +29,14 @@ class ProductCardHorizontal extends StatelessWidget {
         child: Row(
           children: [
             RoundedContainer(
-              height: 120,
+              height: 130,
               padding: const EdgeInsets.all(8),
               bgColor: dark ? MyColors.dark : MyColors.white,
               child: Stack(
                 children: [
                   SizedBox(
-                    height: 120,
-                    width: 120,
+                    height: 130,
+                    width: 130,
                     child: Image(
                       fit: BoxFit.contain,
                       image: AssetImage(Assets.images.products.nikeShoes.path),

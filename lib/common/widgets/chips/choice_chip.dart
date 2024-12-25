@@ -13,6 +13,7 @@ class RChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isColor = MyHelperFunctions.getColor(text) != null;
+    final dark = MyHelperFunctions.isDarkMode(context);
     return Theme(
       data: ThemeData(canvasColor: Colors.transparent),
       child: ChoiceChip(
@@ -21,7 +22,13 @@ class RChoiceChip extends StatelessWidget {
         selectedColor: MyColors.primary,
         checkmarkColor: Colors.white,
         onSelected: (value) {},
-        labelStyle: TextStyle(color: selected ? MyColors.white : null),
+        labelStyle: TextStyle(
+          color: selected
+              ? MyColors.white
+              : dark
+                  ? Colors.grey
+                  : null,
+        ),
         avatar: isColor
             ? CircularContainer(
                 height: 50,

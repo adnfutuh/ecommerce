@@ -5,10 +5,14 @@ import 'package:ecommerce/common/widgets/custom_shapes/containers/search_contain
 import 'package:ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:ecommerce/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:ecommerce/common/widgets/text/section_headling.dart';
+import 'package:ecommerce/features/shop/screens/brands/all_brands_screen.dart';
+import 'package:ecommerce/features/shop/screens/brands/brand_products.dart';
+import 'package:ecommerce/features/shop/screens/cart/cart_screen.dart';
 import 'package:ecommerce/features/shop/screens/store/widgets/store_categories.dart';
 import 'package:ecommerce/utils/constants/colors.dart';
 import 'package:ecommerce/utils/helpers/helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -23,7 +27,10 @@ class StoreScreen extends StatelessWidget {
           title:
               Text('Store', style: Theme.of(context).textTheme.headlineMedium),
           actions: [
-            CartCounterIcon(iconColor: dark ? MyColors.white : MyColors.black)
+            CartCounterIcon(
+              iconColor: dark ? MyColors.white : MyColors.black,
+              onPressed: () => Get.to(() => const CartScreen()),
+            )
           ],
         ),
         body: NestedScrollView(
@@ -51,12 +58,17 @@ class StoreScreen extends StatelessWidget {
                         padding: EdgeInsets.zero,
                       ),
                       const SizedBox(height: 16),
-                      const SectionHeadling(title: 'Popular Brands'),
+                      SectionHeadling(
+                        title: 'Popular Brands',
+                        onPressed: () => Get.to(() => const AllBrandsScreen()),
+                      ),
                       GridLayout(
                         mainAxisExtent: 60,
                         itemCount: 4,
-                        itemBuilder: (_, index) => const BarndCard(),
-                      )
+                        itemBuilder: (_, index) => BarndCard(
+                          onTap: () => Get.to(() => const BrandProducts()),
+                        ),
+                      ),
                     ],
                   ),
                 ),

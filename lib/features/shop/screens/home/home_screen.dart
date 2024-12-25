@@ -2,6 +2,7 @@ import 'package:ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:ecommerce/common/widgets/products/card/product_card_vertical.dart';
 import 'package:ecommerce/common/widgets/text/section_headling.dart';
 import 'package:ecommerce/features/shop/screens/all_products/all_products.dart';
+import 'package:ecommerce/navigation_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,17 +15,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final NavigationController controller = Get.find<NavigationController>();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const PrimaryHeaderContainer(
+            PrimaryHeaderContainer(
               child: Column(
                 children: [
-                  HomeAppbar(),
-                  SearchContainer(text: 'Search in Store'),
-                  HomeCategories(),
-                  SizedBox(height: 64)
+                  const HomeAppbar(),
+                  SearchContainer(
+                    text: 'Search in Store',
+                    onTap: () => controller.navigateToScreen(1),
+                  ),
+                  const HomeCategories(),
+                  const SizedBox(height: 64)
                 ],
               ),
             ),
