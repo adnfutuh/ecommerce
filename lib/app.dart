@@ -1,8 +1,8 @@
-import 'package:ecommerce/features/authentication/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'utils/theme/theme.dart';
+import 'utils/utils.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,7 +14,14 @@ class MyApp extends StatelessWidget {
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const OnboardingScreen(),
+      home: const Scaffold(
+        backgroundColor: MyColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: MyColors.white,
+          ),
+        ),
+      ),
     );
   }
 }
