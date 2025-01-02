@@ -1,3 +1,4 @@
+import 'package:ecommerce/common/widgets/checkbox/r_check_box.dart';
 import 'package:ecommerce/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:ecommerce/features/authentication/screens/signup/signup_screen.dart';
 import 'package:ecommerce/navigation_menu.dart';
@@ -7,12 +8,14 @@ import 'package:icons_plus/icons_plus.dart';
 
 import '../../../../../common/widgets/login_signup/login_signup.dart';
 import '../../../../../utils/utils.dart';
+import '../../../controllers/signup/signup_controller.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignupController());
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32),
       child: Form(
@@ -22,19 +25,23 @@ class LoginForm extends StatelessWidget {
             icon1: Iconsax.direct_right_outline,
             text: MyText.email,
           ),
-          const TextForm(
-            icon1: Iconsax.password_check_outline,
-            text: MyText.pass,
-            icon2: Iconsax.eye_slash_outline,
+          Obx(
+            () => TextForm(
+              obscureText: controller.hidePassword.value,
+              icon1: Iconsax.password_check_outline,
+              text: MyText.pass,
+              onPressed: () => controller.hidePassword.value =
+                  !controller.hidePassword.value,
+              icon2: Icon(controller.hidePassword.value
+                  ? Iconsax.eye_slash_outline
+                  : Iconsax.eye_outline),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Checkbox(value: true, onChanged: (value) {}),
-                  const Text(MyText.rememberMe)
-                ],
+              const Row(
+                children: [RCheckBox(), Text(MyText.rememberMe)],
               ),
               TextButton(
                 onPressed: () => Get.to(() => const ForgetPassword()),

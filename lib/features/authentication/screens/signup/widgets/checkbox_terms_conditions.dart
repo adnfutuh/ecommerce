@@ -1,3 +1,4 @@
+import 'package:ecommerce/common/widgets/checkbox/r_check_box.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/utils.dart';
@@ -10,7 +11,7 @@ class CheckboxTermsConditions extends StatelessWidget {
     final dark = MyHelperFunctions.isDarkMode(context);
     return Row(
       children: [
-        Checkbox(value: true, onChanged: (value) {}),
+        const RCheckBox(),
         Expanded(
           child: Text.rich(
             TextSpan(
