@@ -25,6 +25,9 @@ class SignupController extends GetxController {
 
   void signup() async {
     try {
+      /// Form Validation
+      if (!signupFormKey.currentState!.validate()) return;
+
       /// Privacy Policy Check
       if (hidePrivacyPolicy.value == false) {
         MyLoaders.warningSnackBar(
@@ -47,9 +50,6 @@ class SignupController extends GetxController {
       /// Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) return;
-
-      /// Form Validation
-      if (!signupFormKey.currentState!.validate()) return;
 
       final userCredential = await AuthRepository.instance
           .registerWithEmailAndPassword(
@@ -74,10 +74,10 @@ class SignupController extends GetxController {
         title: "Congratulations",
         message: "Your account has been created! Verify email to continue.",
       );
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
       MyFullScreenLoader.stopLoading();
-      MyLoaders.errorSnackBar(title: "On Snap", message: e.toString());
+      MyLoaders.errorSnackBar(title: "On Snap!", message: e.toString());
     }
   }
 }
