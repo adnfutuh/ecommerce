@@ -25,21 +25,8 @@ class SignupController extends GetxController {
 
   void signup() async {
     try {
-      /// Star Loading
-      MyFullScreenLoader.openLoadingDialog(
-        "We are processing your information",
-        Assets.images.animations.loaderAnimation,
-      );
-
-      /// Check Internet Connectivity
-      final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
-
-      /// Form Validation
-      if (!signupFormKey.currentState!.validate()) return;
-
       /// Privacy Policy Check
-      if (hidePrivacyPolicy.value) {
+      if (hidePrivacyPolicy.value == false) {
         MyLoaders.warningSnackBar(
           title: "Accept Privacy Policy",
           message:
@@ -47,6 +34,22 @@ class SignupController extends GetxController {
         );
         return;
       }
+
+      /// Star Loading
+      MyFullScreenLoader.openLoadingDialog(
+        "We are processing your information",
+        Assets.images.animations.a141594AnimationOfDocer,
+      );
+
+      /// Delay to simulate animation duration (adjust the duration as needed)
+      await Future.delayed(const Duration(seconds: 3));
+
+      /// Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
+
+      /// Form Validation
+      if (!signupFormKey.currentState!.validate()) return;
 
       final userCredential = await AuthRepository.instance
           .registerWithEmailAndPassword(
@@ -73,9 +76,8 @@ class SignupController extends GetxController {
       );
       Get.to(() => const VerifyEmailScreen());
     } catch (e) {
-      MyLoaders.errorSnackBar(title: "On Snap", message: e.toString());
-    } finally {
       MyFullScreenLoader.stopLoading();
+      MyLoaders.errorSnackBar(title: "On Snap", message: e.toString());
     }
   }
 }
