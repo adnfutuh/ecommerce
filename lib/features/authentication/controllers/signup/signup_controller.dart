@@ -33,7 +33,7 @@ class SignupController extends GetxController {
       if (!signupFormKey.currentState!.validate()) return;
 
       /// Privacy Policy Check
-      if (hidePrivacyPolicy.value == false) {
+      if (!hidePrivacyPolicy.value) {
         MyLoaders.warningSnackBar(
           title: "Accept Privacy Policy",
           message:
