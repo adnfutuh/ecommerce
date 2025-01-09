@@ -25,6 +25,10 @@ class SignupController extends GetxController {
 
   void signup() async {
     try {
+      /// Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
+
       /// Form Validation
       if (!signupFormKey.currentState!.validate()) return;
 
@@ -47,13 +51,9 @@ class SignupController extends GetxController {
       /// Delay to simulate animation duration (adjust the duration as needed)
       await Future.delayed(const Duration(seconds: 3));
 
-      /// Check Internet Connectivity
-      final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
-
       final userCredential = await AuthRepository.instance
           .registerWithEmailAndPassword(
-              email: email.text.trim(), password: email.text.trim());
+              email: email.text.trim(), password: password.text.trim());
 
       final newUser = UserModel(
         id: userCredential.user!.uid,

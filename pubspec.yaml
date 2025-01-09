@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   another_carousel_pro: ^1.0.2
-  cloud_firestore: ^5.6.1
+  cloud_firestore: ^5.6.0
   connectivity_plus: ^6.1.1
   cupertino_icons: ^1.0.8
   firebase_auth: ^5.4.0

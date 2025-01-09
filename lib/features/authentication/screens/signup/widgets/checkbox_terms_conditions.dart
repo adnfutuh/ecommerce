@@ -1,5 +1,6 @@
-import 'package:ecommerce/common/widgets/checkbox/r_check_box.dart';
+import 'package:ecommerce/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../utils/utils.dart';
 
@@ -8,10 +9,17 @@ class CheckboxTermsConditions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignupController());
     final dark = MyHelperFunctions.isDarkMode(context);
     return Row(
       children: [
-        const RCheckBox(),
+        Obx(
+          () => Checkbox(
+            value: controller.hidePrivacyPolicy.value,
+            onChanged: (value) => controller.hidePrivacyPolicy.value =
+                !controller.hidePrivacyPolicy.value,
+          ),
+        ),
         Expanded(
           child: Text.rich(
             TextSpan(
