@@ -1,5 +1,6 @@
-import 'package:ecommerce/features/authentication/screens/password_configuration/reset_password.dart';
+import 'package:ecommerce/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:ecommerce/utils/utils.dart';
+import 'package:ecommerce/utils/validator/validation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -38,8 +40,11 @@ class ForgetPassword extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               const SizedBox(height: 64),
-              const Form(
+              Form(
+                key: controller.forgetPasswordFormKey,
                 child: TextForm(
+                  controller: controller.email,
+                  validator: (value) => MyValidatior.validateEmail(value),
                   icon1: Iconsax.direct_right_outline,
                   text: MyText.email,
                 ),
@@ -48,7 +53,7 @@ class ForgetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => Get.to(() => const ResetPassword()),
+                  onPressed: () => controller.sendPasswordResetEmail(),
                   child: const Text(MyText.submit),
                 ),
               ),

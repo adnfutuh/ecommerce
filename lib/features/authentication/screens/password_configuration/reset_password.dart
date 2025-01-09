@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:ecommerce/features/authentication/screens/login/login_screen.dart';
 import 'package:ecommerce/generated/assets.gen.dart';
 import 'package:ecommerce/utils/utils.dart';
@@ -5,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+  final String email;
+  const ResetPassword({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class ResetPassword extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'Support@CodingWithAdnan.com',
+                email,
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
@@ -50,7 +52,8 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => ForgetPasswordController.instance
+                      .resendPasswordResetEmail(email),
                   child: const Text(MyText.resendEmail),
                 ),
               ),

@@ -65,9 +65,10 @@ class LoginController extends GetxController {
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) return;
 
-      final userCredentials = await AuthRepository.instance.loginWithGoogle();
+      // final userCredentials =
+      await AuthRepository.instance.loginWithGoogle();
 
-      await userController.saveUserRecord(userCredentials);
+      // await userController.saveUserRecord(userCredentials);
 
       MyFullScreenLoader.openLoadingDialog(
         "Logging you in ...",
