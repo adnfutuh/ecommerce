@@ -56,7 +56,7 @@ class LoginController extends GetxController {
       AuthRepository.instance.screenRedirect();
     } catch (e) {
       MyFullScreenLoader.stopLoading();
-      MyLoaders.errorSnackBar(title: "On Snap!", message: e.toString());
+      MyLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
     }
   }
 
@@ -65,10 +65,9 @@ class LoginController extends GetxController {
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) return;
 
-      // final userCredentials =
-      await AuthRepository.instance.loginWithGoogle();
+      final userCredentials = await AuthRepository.instance.loginWithGoogle();
 
-      // await userController.saveUserRecord(userCredentials);
+      await userController.saveUserRecord(userCredentials);
 
       MyFullScreenLoader.openLoadingDialog(
         "Logging you in ...",
@@ -82,7 +81,7 @@ class LoginController extends GetxController {
       AuthRepository.instance.screenRedirect();
     } catch (e) {
       MyFullScreenLoader.stopLoading();
-      MyLoaders.errorSnackBar(title: "On Snap!", message: e.toString());
+      MyLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
     }
   }
 }

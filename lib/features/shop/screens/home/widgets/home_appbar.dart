@@ -1,3 +1,5 @@
+import 'package:ecommerce/common/widgets/shimmer_effect/shimmer_effect.dart';
+import 'package:ecommerce/features/personalization/controllers/user_controller.dart';
 import 'package:ecommerce/features/shop/screens/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +15,7 @@ class HomeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return RAppbar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,12 +27,16 @@ class HomeAppbar extends StatelessWidget {
                 .labelMedium!
                 .apply(color: MyColors.grey),
           ),
-          Text(
-            MyText.homeAppbarSubTitle,
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .apply(color: MyColors.white),
+          Obx(
+            () => controller.profileLoading.value
+                ? const ShimmerEffect(width: 80, height: 15)
+                : Text(
+                    controller.user.value.fullName,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall!
+                        .apply(color: MyColors.white),
+                  ),
           )
         ],
       ),

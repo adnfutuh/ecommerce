@@ -54,7 +54,7 @@ class CheckoutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: ElevatedButton(
           onPressed: () => Get.to(() => SuccessScreen(
-                image: Assets.icons.paymentMethods.successfulPaymentIcon.path,
+                image: Assets.images.animations.a72462CheckRegister,
                 title: "Payment Success",
                 subTitle: "Your item will be shipped soon!",
                 onPressed: () => Get.to(() => const NavigationMenu()),

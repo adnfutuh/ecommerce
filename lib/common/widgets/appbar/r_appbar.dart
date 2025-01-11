@@ -38,7 +38,15 @@ class RAppbar extends StatelessWidget implements PreferredSizeWidget {
                         : MyColors.black,
               )
             : leadingIcon != null
-                ? IconButton(onPressed: onPressed, icon: Icon(leadingIcon))
+                ? IconButton(
+                    onPressed: onPressed,
+                    icon: Icon(leadingIcon),
+                    color: changeColor
+                        ? color
+                        : dark
+                            ? MyColors.white
+                            : MyColors.black,
+                  )
                 : null,
         title: title,
         actions: actions,

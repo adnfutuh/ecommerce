@@ -38,7 +38,7 @@ class ForgetPasswordController extends GetxController {
       Get.to(() => ResetPassword(email: email.text.trim()));
     } catch (e) {
       MyFullScreenLoader.stopLoading();
-      MyLoaders.errorSnackBar(title: "On Snap!", message: e.toString());
+      MyLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
     }
   }
 
@@ -64,7 +64,7 @@ class ForgetPasswordController extends GetxController {
       );
     } catch (e) {
       MyFullScreenLoader.stopLoading();
-      MyLoaders.errorSnackBar(title: "On Snap!", message: e.toString());
+      MyLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
     }
   }
 }

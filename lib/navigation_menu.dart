@@ -54,7 +54,5 @@ class NavigationController extends GetxController {
     SettingScreen(),
   ];
 
-  void navigateToScreen(int index) {
-    selectedIndex.value = index;
-  }
+  void navigateToScreen(int index) => selectedIndex.value = index;
 }
