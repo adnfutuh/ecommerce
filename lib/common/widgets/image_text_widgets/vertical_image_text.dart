@@ -32,6 +32,8 @@ class VerticalImageText extends StatelessWidget {
               ),
               child: Center(
                 child: Image(
+                  errorBuilder: (context, img, error) =>
+                      const Icon(Icons.error),
                   image: AssetImage(image),
                   fit: BoxFit.cover,
                   color: dark ? MyColors.light : MyColors.dark,

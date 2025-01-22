@@ -5,6 +5,7 @@ import 'package:ecommerce/common/widgets/custom_shapes/containers/search_contain
 import 'package:ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:ecommerce/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:ecommerce/common/widgets/text/section_headling.dart';
+import 'package:ecommerce/features/shop/controllers/category_controller.dart';
 import 'package:ecommerce/features/shop/screens/brands/all_brands_screen.dart';
 import 'package:ecommerce/features/shop/screens/brands/brand_products.dart';
 import 'package:ecommerce/features/shop/screens/cart/cart_screen.dart';
@@ -19,9 +20,10 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     final dark = MyHelperFunctions.isDarkMode(context);
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: RAppbar(
           title:
@@ -72,25 +74,19 @@ class StoreScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                bottom: const RTabBar(
-                  tabs: [
-                    Tab(child: Text('Sports')),
-                    Tab(child: Text('Furnitures')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Clothes')),
-                    Tab(child: Text('Cosmetics')),
-                  ],
+                bottom: RTabBar(
+                  tabs: categories
+                      .map((category) => Tab(text: category.name))
+                      .toList(),
                 ),
               ),
             ];
           },
-          body: const TabBarView(children: [
-            StoreCategoryTab(),
-            StoreCategoryTab(),
-            StoreCategoryTab(),
-            StoreCategoryTab(),
-            StoreCategoryTab(),
-          ]),
+          body: TabBarView(
+            children: categories
+                .map((category) => StoreCategoryTab(category: category))
+                .toList(),
+          ),
         ),
       ),
     );

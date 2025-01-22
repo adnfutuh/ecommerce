@@ -2,12 +2,15 @@ import 'package:ecommerce/common/widgets/brands/brand_showcase.dart';
 import 'package:ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:ecommerce/common/widgets/products/card/product_card_vertical.dart';
 import 'package:ecommerce/common/widgets/text/section_headling.dart';
+import 'package:ecommerce/features/shop/models/category_model.dart';
 import 'package:ecommerce/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class StoreCategoryTab extends StatelessWidget {
+  final CategoryModel category;
   const StoreCategoryTab({
     super.key,
+    required this.category,
   });
 
   @override
