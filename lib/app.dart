@@ -1,4 +1,5 @@
 import 'package:ecommerce/bidings/general_bindings.dart';
+import 'package:ecommerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,13 +17,10 @@ class MyApp extends StatelessWidget {
       darkTheme: MyAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       initialBinding: GeneralBindings(),
+      getPages: AppRoutes.pages,
       home: const Scaffold(
         backgroundColor: MyColors.primary,
-        body: Center(
-          child: CircularProgressIndicator(
-            color: MyColors.white,
-          ),
-        ),
+        body: Center(child: CircularProgressIndicator(color: MyColors.white)),
       ),
     );
   }
