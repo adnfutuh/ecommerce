@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../generated/fonts.gen.dart';
 import 'custom_themes/custom_theme.dart';
 
 class MyAppTheme {
@@ -11,7 +10,7 @@ class MyAppTheme {
     chipTheme: MyChipTheme.lightChipTheme,
     checkboxTheme: MyCheckboxTheme.lightCheckboxTheme,
     useMaterial3: true,
-    fontFamily: FontFamily.poppins,
+    fontFamily: 'Poppins',
     brightness: Brightness.light,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
@@ -26,7 +25,7 @@ class MyAppTheme {
     chipTheme: MyChipTheme.darkChipTheme,
     checkboxTheme: MyCheckboxTheme.darkCheckboxTheme,
     useMaterial3: true,
-    fontFamily: FontFamily.poppins,
+    fontFamily: 'Poppins',
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.black,
